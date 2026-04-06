@@ -3,6 +3,16 @@ name: Hello
 
 on:
   workflow_dispatch: 
+    inputs:
+      environment:
+        description: This is the environment calue where workflow run
+        default: 'dev'
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+          - staging 
 
 #These are jobs inside the workflow 
 jobs:
