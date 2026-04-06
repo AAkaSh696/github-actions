@@ -1,0 +1,33 @@
+name: CICD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Take code
+        run: echo "Git clone"
+
+  build:
+    needs: code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build code
+        run: echo "Docker build"
+
+  test:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test code
+        run: echo "Docker ps"
+
+  deploy:
+    needs: [test,code,build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy code
+        run: echo "Docker run"
