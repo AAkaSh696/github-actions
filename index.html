@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aakash | DevOps Engineer Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aakash | DevOps Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -20,27 +20,46 @@
     }
 
     a {
-      color: inherit;
-      text-decoration: none
+      text-decoration: none;
+      color: inherit
     }
 
     .container {
       max-width: 1100px;
       margin: auto;
-      padding: 0 20px
+      padding: 20px
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      background: rgba(0, 0, 0, .7);
+      padding: 10px;
+      text-align: center;
+      z-index: 1000
+    }
+
+    nav a {
+      margin: 10px;
+      color: #aaa
+    }
+
+    nav a:hover {
+      color: #fff
     }
 
     header {
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       text-align: center;
-      background: radial-gradient(1200px 600px at 50% -10%, #1f2a44, #0b1220)
+      background: linear-gradient(135deg, #1f2a44, #0b1220)
     }
 
     h1 {
-      font-size: 3.2rem
+      font-size: 3rem
     }
 
     .highlight {
@@ -48,65 +67,40 @@
     }
 
     .subtitle {
-      margin-top: 10px;
-      color: #9aa7b2
+      color: #9aa7b2;
+      margin-top: 10px
     }
 
     .btn {
       margin-top: 20px;
-      padding: 12px 20px;
-      border-radius: 30px;
+      padding: 10px 20px;
+      border-radius: 25px;
       border: 1px solid #38bdf8;
-      background: transparent;
       color: #38bdf8;
-      cursor: pointer;
-      transition: .3s
+      background: transparent;
+      cursor: pointer
     }
 
     .btn:hover {
       background: #38bdf8;
-      color: #0b1220
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(11, 18, 32, .7);
-      backdrop-filter: blur(8px)
-    }
-
-    nav .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 60px
-    }
-
-    nav a {
-      margin-left: 15px;
-      color: #9aa7b2
-    }
-
-    nav a:hover {
-      color: #fff
+      color: #000
     }
 
     section {
-      padding: 70px 0
+      padding: 80px 0
     }
 
     .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
+      font-size: 2rem;
+      margin-bottom: 20px;
       border-left: 4px solid #38bdf8;
       padding-left: 10px
     }
 
     .card {
-      background: #0f172a;
+      background: #111827;
       padding: 20px;
-      border-radius: 15px;
+      border-radius: 12px;
       transition: .3s
     }
 
@@ -116,55 +110,33 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px
     }
 
     .badge {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px;
-      border-radius: 12px;
-      background: #0b1220;
+      background: #1f2937;
+      padding: 15px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: .3s;
-      border: 1px solid rgba(255, 255, 255, .1)
+      transition: .3s
     }
 
     .badge:hover {
-      background: #1e293b
-    }
-
-    .icon {
-      width: 30px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #38bdf8;
-      border-radius: 8px;
-      color: #000;
-      font-weight: bold
+      background: #374151
     }
 
     .desc {
-      font-size: .8rem;
-      color: #9aa7b2;
       display: none;
-      margin-top: 5px
-    }
-
-    .note {
-      margin-top: 10px;
+      margin-top: 8px;
       font-size: .85rem;
       color: #9aa7b2
     }
 
     .contact-btn {
       display: inline-block;
-      margin: 10px 10px 0 0;
-      padding: 10px 16px;
+      margin: 10px;
+      padding: 10px 18px;
       border-radius: 25px;
       background: #38bdf8;
       color: #000;
@@ -176,42 +148,41 @@
       padding: 20px;
       color: #777
     }
-
-    .typing {
-      border-right: 2px solid #38bdf8;
-      white-space: nowrap;
-      overflow: hidden
-    }
   </style>
 </head>
 
 <body>
 
   <nav>
-    <div class="container nav-inner">
-      <strong>Aakash.dev</strong>
-      <div>
-        <a href="#about">About</a>
-        <a href="#tools">Tools</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#tools">Tools</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <header>
-    <div class="container">
-      <h1>Hi, I'm <span class="highlight">Aakash</span></h1>
-      <p class="subtitle typing" id="typing"></p>
-      <button class="btn" onclick="scrollToSection('tools')">Explore</button>
-    </div>
+    <h1>Hi, I'm <span class="highlight">Aakash</span> 🚀</h1>
+    <p class="subtitle">DevOps Learner • Future Cloud Engineer</p>
+    <button class="btn" onclick="scrollToSection('about')">Explore</button>
   </header>
 
   <section id="about">
     <div class="container">
       <h2 class="section-title">About Me</h2>
       <div class="card">
-        3rd Year CSE Student at UIET Kurukshetra. Currently learning DevOps with hands-on practice in Linux, Shell
-        Scripting, Git, and Cloud.
+        I am a 3rd year CSE student at UIET Kurukshetra, Kurukshetra University. Currently on a #90DaysOfDevOps journey,
+        learning Linux, Shell Scripting, Git, AWS and building real-world automation projects.
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="card">
+        🎓 3rd Year CSE Student<br>
+        UIET Kurukshetra, Kurukshetra University
       </div>
     </div>
   </section>
@@ -221,64 +192,59 @@
       <h2 class="section-title">Tools & Technologies</h2>
       <div class="grid">
 
-        <div class="badge" onclick="toggleDesc(this)">
-          <div class="icon">🐧</div>
-          <div>
-            Linux
-            <div class="desc">Used for system operations, process management, and server handling.</div>
-          </div>
+        <div class="badge" onclick="toggle(this)">
+          <strong>🐧 Linux</strong>
+          <div class="desc">System operations, process management, server handling</div>
         </div>
 
-        <div class="badge" onclick="toggleDesc(this)">
-          <div class="icon">🧩</div>
-          <div>
-            Shell Scripting
-            <div class="desc">Automates tasks like backups, log rotation, and deployments.</div>
-          </div>
+        <div class="badge" onclick="toggle(this)">
+          <strong>🧩 Shell Scripting</strong>
+          <div class="desc">Automation of backups, logs and repetitive tasks</div>
         </div>
 
-        <div class="badge" onclick="toggleDesc(this)">
-          <div class="icon">☁️</div>
-          <div>
-            AWS
-            <div class="desc">Used EC2 for hosting, cloud deployments, and automation.</div>
-          </div>
+        <div class="badge" onclick="toggle(this)">
+          <strong>☁️ AWS</strong>
+          <div class="desc">Cloud hosting using EC2 and deployment</div>
         </div>
 
-        <div class="badge" onclick="toggleDesc(this)">
-          <div class="icon">🌿</div>
-          <div>
-            Git
-            <div class="desc">Version control for tracking changes and collaboration.</div>
-          </div>
+        <div class="badge" onclick="toggle(this)">
+          <strong>🌿 Git</strong>
+          <div class="desc">Version control and tracking code changes</div>
         </div>
 
-        <div class="badge" onclick="toggleDesc(this)">
-          <div class="icon">🐙</div>
-          <div>
-            GitHub
-            <div class="desc">Hosting repositories and showcasing projects.</div>
-          </div>
+        <div class="badge" onclick="toggle(this)">
+          <strong>🐙 GitHub</strong>
+          <div class="desc">Repository hosting and collaboration</div>
         </div>
 
-        <div class="badge" onclick="toggleDesc(this)">
-          <div class="icon">🐳</div>
-          <div>
-            Docker
-            <div class="desc">Containerization for consistent app deployment.</div>
-          </div>
+        <div class="badge" onclick="toggle(this)">
+          <strong>🐳 Docker</strong>
+          <div class="desc">Containerization for consistent environments</div>
         </div>
 
-        <div class="badge" onclick="toggleDesc(this)">
-          <div class="icon">📋</div>
-          <div>
-            Jira
-            <div class="desc">Used for project tracking and agile workflows.</div>
-          </div>
+        <div class="badge" onclick="toggle(this)">
+          <strong>📋 Jira</strong>
+          <div class="desc">Project management and issue tracking</div>
         </div>
 
       </div>
-      <p class="note">⚡ Continuously learning and adding more tools...</p>
+      <p style="margin-top:10px;color:#9aa7b2">⚡ Continuously learning and adding more tools...</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid">
+        <div class="card">
+          Smart Backup Automation System<br>
+          Automates backup, log rotation and scheduling using bash
+        </div>
+        <div class="card">
+          Log Analyzer<br>
+          Analyzes logs and generates summary reports using shell scripting
+        </div>
+      </div>
     </div>
   </section>
 
@@ -298,22 +264,7 @@
 
   <script>
     function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }) }
-
-    function toggleDesc(el) {
-      const desc = el.querySelector('.desc');
-      desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
-    }
-
-    const text = "DevOps Learner • Future Cloud Engineer";
-    let i = 0;
-    function type() {
-      if (i < text.length) {
-        document.getElementById('typing').innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, 40);
-      }
-    }
-    type();
+    function toggle(el) { let d = el.querySelector('.desc'); d.style.display = d.style.display === 'block' ? 'none' : 'block' }
   </script>
 
 </body>
