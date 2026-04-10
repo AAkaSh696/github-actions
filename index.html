@@ -1,105 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aakash | DevOps Portfolio</title>
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
-}
-header {
-  text-align: center;
-  padding: 50px 20px;
-}
-h1 {
-  font-size: 2.5rem;
-}
-p {
-  color: #94a3b8;
-}
-section {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: auto;
-}
-.card {
-  background: #1e293b;
-  padding: 20px;
-  margin: 15px 0;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-ul {
-  padding-left: 20px;
-}
-button {
-  background: #38bdf8;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  color: #64748b;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aakash | DevOps Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0b1220;
+      color: #e6edf3
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      background: rgba(0, 0, 0, .7);
+      padding: 10px;
+      text-align: center;
+      z-index: 1000
+    }
+
+    nav a {
+      margin: 10px;
+      color: #aaa
+    }
+
+    nav a:hover {
+      color: #fff
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1f2a44, #0b1220)
+    }
+
+    h1 {
+      font-size: 3rem
+    }
+
+    .highlight {
+      color: #38bdf8
+    }
+
+    .subtitle {
+      color: #9aa7b2;
+      margin-top: 10px
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      background: transparent;
+      cursor: pointer
+    }
+
+    .btn:hover {
+      background: #38bdf8;
+      color: #000
+    }
+
+    section {
+      padding: 80px 0
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-left: 4px solid #38bdf8;
+      padding-left: 10px
+    }
+
+    .card {
+      background: #111827;
+      padding: 20px;
+      border-radius: 12px;
+      transition: .3s
+    }
+
+    .card:hover {
+      transform: translateY(-5px)
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px
+    }
+
+    .badge {
+      background: #1f2937;
+      padding: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .3s
+    }
+
+    .badge:hover {
+      background: #374151
+    }
+
+    .desc {
+      display: none;
+      margin-top: 8px;
+      font-size: .85rem;
+      color: #9aa7b2
+    }
+
+    .contact-btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 18px;
+      border-radius: 25px;
+      background: #38bdf8;
+      color: #000;
+      font-weight: 500
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #777
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Hi, I'm Aakash 🚀</h1>
-  <p>DevOps Learner | CSE Student | Building Real Skills</p>
-  <button onclick="scrollToSection('skills')">View Skills</button>
-</header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#tools">Tools</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<section id="about">
-  <h2>About Me</h2>
-  <div class="card">
-    <p>I am a 3rd year Computer Science student at UIET Kurukshetra, Kurukshetra University. I am currently learning DevOps and building strong fundamentals in Linux, scripting, and cloud technologies. I enjoy learning by doing real hands-on projects and improving consistently.</p>
-  </div>
-</section>
+  <header>
+    <h1>Hi, I'm <span class="highlight">Aakash</span> 🚀</h1>
+    <p class="subtitle">DevOps Learner • Future Cloud Engineer</p>
+    <button class="btn" onclick="scrollToSection('about')">Explore</button>
+  </header>
 
-<section id="education">
-  <h2>Education</h2>
-  <div class="card">
-    <p>🎓 3rd Year CSE Student</p>
-    <p>University Institute of Engineering & Technology (UIET)</p>
-    <p>Kurukshetra University, Kurukshetra</p>
-  </div>
-</section>
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="card">
+        I am a 3rd year CSE student at UIET Kurukshetra, Kurukshetra University. Currently on a #90DaysOfDevOps journey,
+        learning Linux, Shell Scripting, Git, AWS and building real-world automation projects.
+      </div>
+    </div>
+  </section>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="card">
-    <ul>
-      <li>Linux</li>
-      <li>Shell Scripting</li>
-      <li>AWS</li>
-      <li>Git</li>
-      <li>GitHub</li>
-      <li>Docker</li>
-      <li>Jira</li>
-    </ul>
-  </div>
-</section>
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="card">
+        🎓 3rd Year CSE Student<br>
+        UIET Kurukshetra, Kurukshetra University
+      </div>
+    </div>
+  </section>
 
-<section id="hobbies">
-  <h2>Hobbies</h2>
-  <div class="card">
-    <ul>
-      <li>🎵 Music</li>
-      <li>🏏 Cricket</li>
-      <li>🎌 Anime</li>
-    </ul>
-  </div>
-</section>
+  <section id="tools">
+    <div class="container">
+      <h2 class="section-title">Tools & Technologies</h2>
+      <div class="grid">
 
 <section id="contact">
   <h2>Contact</h2>
@@ -109,15 +200,82 @@ footer {
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Aakash | DevOps Portfolio</p>
-</footer>
+        <div class="badge" onclick="toggle(this)">
+          <strong>🐧 Linux</strong>
+          <div class="desc">System operations, process management, server handling</div>
+        </div>
 
-<script>
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-}
-</script>
+
+        <div class="badge" onclick="toggle(this)">
+          <strong>🧩 Shell Scripting</strong>
+          <div class="desc">Automation of backups, logs and repetitive tasks</div>
+        </div>
+
+        <div class="badge" onclick="toggle(this)">
+          <strong>☁️ AWS</strong>
+          <div class="desc">Cloud hosting using EC2 and deployment</div>
+        </div>
+
+        <div class="badge" onclick="toggle(this)">
+          <strong>🌿 Git</strong>
+          <div class="desc">Version control and tracking code changes</div>
+        </div>
+
+        <div class="badge" onclick="toggle(this)">
+          <strong>🐙 GitHub</strong>
+          <div class="desc">Repository hosting and collaboration</div>
+        </div>
+
+        <div class="badge" onclick="toggle(this)">
+          <strong>🐳 Docker</strong>
+          <div class="desc">Containerization for consistent environments</div>
+        </div>
+
+        <div class="badge" onclick="toggle(this)">
+          <strong>📋 Jira</strong>
+          <div class="desc">Project management and issue tracking</div>
+        </div>
+
+      </div>
+      <p style="margin-top:10px;color:#9aa7b2">⚡ Continuously learning and adding more tools...</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid">
+        <div class="card">
+          Smart Backup Automation System<br>
+          Automates backup, log rotation and scheduling using bash
+        </div>
+        <div class="card">
+          Log Analyzer<br>
+          Analyzes logs and generates summary reports using shell scripting
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <a class="contact-btn" href="mailto:akay07685@gmail.com">📧 Email</a>
+        <a class="contact-btn" href="https://github.com/AAkaSh696" target="_blank">💻 GitHub</a>
+        <a class="contact-btn" href="https://www.linkedin.com/in/aakash-sharma-17819738a/" target="_blank">🧿
+          LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">© 2026 Aakash</div>
+
+  <script>
+    function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }) }
+    function toggle(el) { let d = el.querySelector('.desc'); d.style.display = d.style.display === 'block' ? 'none' : 'block' }
+  </script>
 
 </body>
+
 </html>
