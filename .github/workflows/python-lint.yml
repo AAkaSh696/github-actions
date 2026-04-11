@@ -22,8 +22,8 @@ jobs:
                 python-version: ${{ matrix.python-version}}
             
             - name: install dependencies
-              run: pip install -r req.txt
+              run: pip install -r github-actions/req.txt
             
             - name: Run linter
-              run: flake8 app.py
+              run: flake8 github-actions/app.py
 
