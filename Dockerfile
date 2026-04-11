@@ -7,4 +7,6 @@ COPY req.txt .
 RUN pip install -r req.txt
 COPY . .
 
+EXPOSE 80
+
 CMD [ "python", "app.py" ]
