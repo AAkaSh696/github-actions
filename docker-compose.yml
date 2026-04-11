@@ -1,0 +1,5 @@
+services:
+  web:
+    build: aakash969/github-actions-app:latest
+    ports:
+      -"80:80"
