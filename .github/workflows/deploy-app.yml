@@ -7,7 +7,6 @@ jobs:
     deploy:
         env:
           DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
-          GITHUB_SHA: ${{ github.sha}}
         runs-on: self-hosted
         steps:
             - name: Checkout code
