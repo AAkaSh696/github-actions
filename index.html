@@ -1,53 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aakash | DevOps Portfolio</title>
+  <title>Aakash Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
   <style>
+    :root {
+      --bg: #0b1220;
+      --card-bg: rgba(17, 24, 39, 0.8);
+      --text: #e6edf3;
+      --accent: #38bdf8;
+      --nav-bg: rgba(0, 0, 0, 0.85);
+      --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --text: #1e293b;
+      --accent: #0ea5e9;
+      --nav-bg: rgba(255, 255, 255, 0.9);
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
     * {
       margin: 0;
       padding: 0;
-      box-sizing: border-box
+      box-sizing: border-box;
+      transition: background 0.3s, color 0.3s;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #0b1220;
-      color: #e6edf3
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px
-    }
-
+    /* --- Navigation --- */
     nav {
       position: fixed;
       width: 100%;
-      background: rgba(0, 0, 0, .7);
-      padding: 10px;
-      text-align: center;
-      z-index: 1000
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: var(--shadow);
     }
 
-    nav a {
-      margin: 10px;
-      color: #aaa
+    .nav-links a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.9rem;
     }
 
-    nav a:hover {
-      color: #fff
+    .theme-toggle {
+      background: var(--accent);
+      border: none;
+      padding: 6px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #fff;
     }
 
+    /* --- Hero Section --- */
     header {
       height: 100vh;
       display: flex;
@@ -55,231 +81,217 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(135deg, #1f2a44, #0b1220)
+      background: radial-gradient(circle at center, rgba(56, 189, 248, 0.15), transparent 70%);
     }
 
-    h1 {
-      font-size: 3rem
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      margin-bottom: 25px;
+      box-shadow: 0 0 25px var(--accent);
+      object-fit: cover;
+      background: #111; /* Fallback for no image */
     }
 
-    .highlight {
-      color: #38bdf8
-    }
+    h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 700; }
+    .highlight { color: var(--accent); }
+    .subtitle { font-size: 1.2rem; color: #94a3b8; margin-top: 10px; }
 
-    .subtitle {
-      color: #9aa7b2;
-      margin-top: 10px
-    }
-
-    .btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border-radius: 25px;
-      border: 1px solid #38bdf8;
-      color: #38bdf8;
-      background: transparent;
-      cursor: pointer
-    }
-
-    .btn:hover {
-      background: #38bdf8;
-      color: #000
-    }
-
-    section {
-      padding: 80px 0
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      border-left: 4px solid #38bdf8;
-      padding-left: 10px
-    }
+    /* --- Sections --- */
+    .container { max-width: 1100px; margin: auto; padding: 0 25px; }
+    section { padding: 100px 0; }
+    .section-title { font-size: 2.2rem; margin-bottom: 40px; border-left: 5px solid var(--accent); padding-left: 15px; }
 
     .card {
-      background: #111827;
-      padding: 20px;
-      border-radius: 12px;
-      transition: .3s
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
     }
 
-    .card:hover {
-      transform: translateY(-5px)
-    }
-
+    /* --- Tools Grid --- */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
     }
 
     .badge {
-      background: #1f2937;
-      padding: 15px;
-      border-radius: 10px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 15px;
       cursor: pointer;
-      transition: .3s
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
     .badge:hover {
-      background: #374151
+      border-color: var(--accent);
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
     }
 
-    .desc {
-      display: none;
-      margin-top: 8px;
-      font-size: .85rem;
-      color: #9aa7b2
+    .badge strong { font-size: 1.1rem; display: block; margin-bottom: 5px; }
+    .desc { display: none; margin-top: 10px; font-size: 0.9rem; color: #94a3b8; }
+
+    /* --- Interaction Buttons --- */
+    .btn-hero {
+      margin-top: 30px;
+      padding: 12px 35px;
+      border-radius: 50px;
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      font-weight: 600;
+      cursor: pointer;
     }
+
+    .btn-hero:hover { background: var(--accent); color: white; }
 
     .contact-btn {
       display: inline-block;
       margin: 10px;
-      padding: 10px 18px;
-      border-radius: 25px;
-      background: #38bdf8;
-      color: #000;
-      font-weight: 500
+      padding: 12px 28px;
+      border-radius: 50px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      transition: transform 0.2s;
     }
 
-    .footer {
-      text-align: center;
-      padding: 20px;
-      color: #777
+    .contact-btn:hover { transform: scale(1.05); }
+
+    .footer { padding: 50px; text-align: center; font-size: 0.9rem; opacity: 0.7; }
+
+    /* Responsive Tweaks */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
-
-<body>
+<body data-theme="dark">
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#tools">Tools</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <div style="font-weight:700; font-size: 1.2rem;">Portfolio.</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#tools">Tools</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓 Theme</button>
   </nav>
 
   <header>
-    <h1>Hi, I'm <span class="highlight">Aakash</span> 🚀</h1>
-    <p class="subtitle">DevOps Learner • Future Cloud Engineer</p>
-    <button class="btn" onclick="scrollToSection('about')">Explore</button>
+    <img src="YOUR_PHOTO_URL_HERE" alt="Aakash" class="profile-img" data-aos="zoom-in" onerror="this.src='https://ui-avatars.com/api/?name=Aakash&background=38bdf8&color=fff&size=200'">
+    <h1 data-aos="fade-down">Hi, I'm <span class="highlight">Aakash</span> 🚀</h1>
+    <p class="subtitle" data-aos="fade-up" data-aos-delay="200">Cloud Engineer & DevOps Enthusiast</p>
+    <button class="btn-hero" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Explore My Journey</button>
   </header>
 
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
+  <section id="about" class="container" data-aos="fade-right">
+    <h2 class="section-title">About Me</h2>
+    <div class="card">
+      I am a 3rd year CSE student at <strong>UIET Kurukshetra, Kurukshetra University</strong>. Currently on a Cloud learning journey, I am mastering Linux, Shell Scripting, Git, AWS and building real-world automation projects to streamline development lifecycles.
+    </div>
+  </section>
+
+  <section id="education" class="container" data-aos="fade-left">
+    <h2 class="section-title">Education</h2>
+    <div class="card">
+      <h3 style="color: var(--accent)">🎓 Bachelor of Technology in CSE</h3>
+      <p>UIET Kurukshetra, Kurukshetra University</p>
+      <p style="opacity: 0.8">Expected Graduation: 2027</p>
+    </div>
+  </section>
+
+  <section id="tools" class="container">
+    <h2 class="section-title" data-aos="fade-up">Tools & Technologies</h2>
+    <div class="grid">
+      <div class="badge" onclick="toggle(this)" data-aos="zoom-in">
+        <strong>🐧 Linux</strong>
+        <div class="desc">System operations, process management, and server handling.</div>
+      </div>
+
+      <div class="badge" onclick="toggle(this)" data-aos="zoom-in" data-aos-delay="100">
+        <strong>🧩 Shell Scripting</strong>
+        <div class="desc">Automation of backups, logs and repetitive cron tasks.</div>
+      </div>
+
+      <div class="badge" onclick="toggle(this)" data-aos="zoom-in" data-aos-delay="200">
+        <strong>☁️ AWS</strong>
+        <div class="desc">Cloud hosting using EC2, S3 bucket management, and deployment.</div>
+      </div>
+
+      <div class="badge" onclick="toggle(this)" data-aos="zoom-in" data-aos-delay="300">
+        <strong>🌿 Git</strong>
+        <div class="desc">Version control, branching strategies, and tracking code changes.</div>
+      </div>
+
+      <div class="badge" onclick="toggle(this)" data-aos="zoom-in" data-aos-delay="400">
+        <strong>🐙 GitHub</strong>
+        <div class="desc">Repository hosting, Actions (CI/CD), and team collaboration.</div>
+      </div>
+
+      <div class="badge" onclick="toggle(this)" data-aos="zoom-in" data-aos-delay="500">
+        <strong>🐳 Docker</strong>
+        <div class="desc">Containerization for consistent development and prod environments.</div>
+      </div>
+
+      <div class="badge" onclick="toggle(this)" data-aos="zoom-in" data-aos-delay="600">
+        <strong>📋 Jira</strong>
+        <div class="desc">Agile project management, sprint planning, and issue tracking.</div>
+      </div>
+    </div>
+    <p style="margin-top:30px; color:var(--accent); font-weight:600" data-aos="fade-up">⚡ Continuously learning and adding more tools to my arsenal...</p>
+  </section>
+
+  <section id="projects" class="container" data-aos="fade-up">
+    <h2 class="section-title">Projects</h2>
+    <div class="grid">
       <div class="card">
-        I am a 3rd year CSE student at UIET Kurukshetra, Kurukshetra University. Currently on a #90DaysOfDevOps journey,
-        learning Linux, Shell Scripting, Git, AWS and building real-world automation projects.
+        <h3>Smart Backup Automation System</h3>
+        <p style="margin-top:10px; opacity: 0.9">A comprehensive tool that automates system backups, manages log rotation, and schedules tasks using advanced Bash scripting.</p>
       </div>
     </div>
   </section>
 
-  <section id="education">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="card">
-        🎓 3rd Year CSE Student<br>
-        UIET Kurukshetra, Kurukshetra University
-      </div>
+  <section id="contact" class="container" style="text-align:center" data-aos="zoom-in">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="card">
+      <p style="margin-bottom: 20px;">I'm currently looking for internship opportunities. Let's build something great!</p>
+      <a class="contact-btn" href="mailto:akay07685@gmail.com">📧 Email Me</a>
+      <a class="contact-btn" href="https://github.com/AAkaSh696" target="_blank" style="background:#24292e">💻 GitHub</a>
+      <a class="contact-btn" href="https://www.linkedin.com/in/aakash-sharma-17819738a/" target="_blank" style="background:#0077b5">🧿 LinkedIn</a>
     </div>
   </section>
 
-  <section id="tools">
-    <div class="container">
-      <h2 class="section-title">Tools & Technologies</h2>
-      <div class="grid">
+  <div class="footer">© 2026 Aakash Sharma | Portfolio</div>
 
-        <div class="badge" onclick="toggle(this)">
-          <strong>🐧 Linux</strong>
-          <div class="desc">System operations, process management, server handling</div>
-        </div>
-
-        <div class="badge" onclick="toggle(this)">
-<<<<<<< Updated upstream
-          <strong>🐧 Linux</strong>
-          <div class="desc">System operations, process management, server handling</div>
-        </div>
-
-
-        <div class="badge" onclick="toggle(this)">
-          <strong>🧩 Shell Scripting</strong>
-          <div class="desc">Automation of backups, logs and repetitive tasks</div>
-        </div>
-
-=======
-          <strong>🧩 Shell Scripting</strong>
-          <div class="desc">Automation of backups, logs and repetitive tasks</div>
-        </div>
-
->>>>>>> Stashed changes
-        <div class="badge" onclick="toggle(this)">
-          <strong>☁️ AWS</strong>
-          <div class="desc">Cloud hosting using EC2 and deployment</div>
-        </div>
-
-        <div class="badge" onclick="toggle(this)">
-          <strong>🌿 Git</strong>
-          <div class="desc">Version control and tracking code changes</div>
-        </div>
-
-        <div class="badge" onclick="toggle(this)">
-          <strong>🐙 GitHub</strong>
-          <div class="desc">Repository hosting and collaboration</div>
-        </div>
-
-        <div class="badge" onclick="toggle(this)">
-          <strong>🐳 Docker</strong>
-          <div class="desc">Containerization for consistent environments</div>
-        </div>
-
-        <div class="badge" onclick="toggle(this)">
-          <strong>📋 Jira</strong>
-          <div class="desc">Project management and issue tracking</div>
-        </div>
-
-      </div>
-      <p style="margin-top:10px;color:#9aa7b2">⚡ Continuously learning and adding more tools...</p>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="grid">
-        <div class="card">
-          Smart Backup Automation System<br>
-          Automates backup, log rotation and scheduling using bash
-        </div>
-        <div class="card">
-          Log Analyzer<br>
-          Analyzes logs and generates summary reports using shell scripting
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <div class="card">
-        <a class="contact-btn" href="mailto:akay07685@gmail.com">📧 Email</a>
-        <a class="contact-btn" href="https://github.com/AAkaSh696" target="_blank">💻 GitHub</a>
-        <a class="contact-btn" href="https://www.linkedin.com/in/aakash-sharma-17819738a/" target="_blank">🧿
-          LinkedIn</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer">© 2026 Aakash</div>
-
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }) }
-    function toggle(el) { let d = el.querySelector('.desc'); d.style.display = d.style.display === 'block' ? 'none' : 'block' }
+    AOS.init({ duration: 1000, once: true });
+
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+
+    function toggle(el) {
+      const d = el.querySelector('.desc');
+      const isVisible = d.style.display === 'block';
+      // Close all others first (optional, for a cleaner feel)
+      document.querySelectorAll('.desc').forEach(item => item.style.display = 'none');
+      d.style.display = isVisible ? 'none' : 'block';
+    }
   </script>
-
 </body>
-
 </html>
