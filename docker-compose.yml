@@ -1,5 +1,5 @@
 services:
   web:
-    image: aakash969/github-actions-app:latest
+    image: ${ DOCKERHUB_USER }/github-actions-app:${{ github.sha }}
     ports:
       - "80:80"
