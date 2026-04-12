@@ -12,6 +12,7 @@ jobs:
         env:
           DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
           DOCKERHUB_USER_REF_NAME: ${{ github.ref_name}}
+          GITHUB_SHA: ${{ github.sha}}
         runs-on: self-hosted
         steps:
             - name: Checkout code

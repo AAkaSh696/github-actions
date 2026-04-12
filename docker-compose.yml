@@ -1,5 +1,5 @@
 services:
   web:
-    image: ${DOCKERHUB_USER}/github-actions-app:${DOCKERHUB_USER_REF_NAME}
+    image: ${DOCKERHUB_USER}/github-actions-app:${GITHUB_SHA}
     ports:
       - "80:80"
