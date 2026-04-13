@@ -5,7 +5,7 @@ on:
 
 jobs:
     deploy:
-        runs-on: ubunutu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: SSH to production server
               uses: appleboy/ssh-action@v1.0.3
