@@ -18,7 +18,7 @@ jobs:
                 key: ${{ secrets.EC2_SSH_KEY }}
                 script: |
                     echo "Starting Deployment"
-                    mkdir -p devops
+                    mkdir devops
 
             - name: Copy the docker compose file
               uses: appleboy/scp-action@v1
@@ -37,7 +37,7 @@ jobs:
                 key: ${{ secrets.EC2_SSH_KEY }}
                 script: |
                     echo "Running the app"
-                    sudo apt-get install docker.io docker-compose-v2 -y
+                    sudo apt-get update && sudo apt-get install docker.io docker-compose-v2 -y
                     sudo usermod -aG docker $USER
                     newgrp docker 
                     export DOCKERHUB_USER=${{ vars.DOCKERHUB_USER }}
