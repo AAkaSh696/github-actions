@@ -43,5 +43,5 @@ jobs:
                     export DOCKERHUB_USER=${{ vars.DOCKERHUB_USER }}
                     export DOCKERHUB_USER_REF_NAME=${{ github.ref_name}}
                     export GITHUB_SHA=${{ github.sha}}
-                    echo ${{ secrets.DOCKERHUB_TOKEN}} | docker login -u ${{ secrets.DOCKERHUB_USER}} --password-stdin 
+                    echo ${{ secrets.DOCKERHUB_TOKEN}} | docker login -username ${{ vars.DOCKERHUB_USER}} --password-stdin 
                     cd ~/devops &&  docker compose up -d --build 
